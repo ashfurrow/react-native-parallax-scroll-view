@@ -223,7 +223,7 @@ class ParallaxScrollView extends Component {
     const { scrollY } = this.state;
     const p = pivotPoint(parallaxHeaderHeight, stickyHeaderHeight);
     return (
-      <View style={styles.parallaxHeaderContainer}>
+      <View style={[styles.parallaxHeaderContainer, this.props.parallaxHeaderContainerStyles]}>
         <Animated.View
           style={[styles.parallaxHeader, {
                   height: parallaxHeaderHeight,
@@ -324,7 +324,8 @@ ParallaxScrollView.defaultProps = {
   renderBackground: renderEmpty,
   renderParallaxHeader: renderEmpty, // Deprecated (will be removed in 0.18.0)
   renderForeground: null,
-  stickyHeaderHeight: 0
+  stickyHeaderHeight: 0,
+  parallaxHeaderContainerStyles: {}
 };
 
 module.exports = ParallaxScrollView;
